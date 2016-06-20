@@ -1,8 +1,13 @@
 from flask_wtf import Form
-from wtforms import StringField, PasswordField, BooleanField,SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, InputRequired, Length, Email, Regexp, EqualTo
 from wtforms import ValidationError
 from .models import User
+
+
+class EditForm(Form):
+    nickname = StringField('nickname', validators=[InputRequired()])
+    about_me = TextAreaField('about_me', validators=[Length(min=0, max=140)])
 
 
 class LoginForm(Form):
