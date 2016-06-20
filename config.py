@@ -8,3 +8,11 @@ SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 SECRET_KEY = 'you-will-never-guess'
 
+# mail server settings
+MAIL_SERVER = 'localhost'
+MAIL_PORT = 25
+MAIL_USERNAME = None
+MAIL_PASSWORD = None
+
+# administrator list
+ADMINS = ['you@example.com']
