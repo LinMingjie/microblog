@@ -8,6 +8,9 @@ SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 SECRET_KEY = 'you-will-never-guess'
 
+# pagination
+POSTS_PER_PAGE = 3
+
 # mail server settings
 MAIL_SERVER = 'localhost'
 MAIL_PORT = 25
