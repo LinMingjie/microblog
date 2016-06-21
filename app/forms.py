@@ -5,11 +5,6 @@ from wtforms import ValidationError
 from .models import User
 
 
-class EditForm(Form):
-    nickname = StringField('nickname', validators=[InputRequired()])
-    about_me = TextAreaField('about_me', validators=[Length(min=0, max=140)])
-
-
 class LoginForm(Form):
     # openid = StringField('openid', validators=[DataRequired()])
     email = StringField('Email', validators=[InputRequired(), Length(1, 64), Email()])
@@ -36,3 +31,13 @@ class RegistrationForm(Form):
     def validate_nickname(self, field):
         if User.query.filter_by(nickname=field.data).first():
             raise ValidationError('Nickname already in use.')
+
+
+class EditForm(Form):
+    nickname = StringField('nickname', validators=[InputRequired()])
+    about_me = TextAreaField('about_me', validators=[Length(min=0, max=140)])
+
+
+class PostForm(Form):
+    post = StringField('post', validators=[DataRequired()])
+
